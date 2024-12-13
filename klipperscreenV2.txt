@@ -1,0 +1,129 @@
+[main]
+default_printer: Jimmy3D
+show_heater_power: True
+print_estimate_method: slicer
+show_gcode_panel: True
+
+[printer Jimmy3D]
+moonraker_host: 127.0.0.1
+moonraker_port: 7125
+
+# Configure printer name display
+[printer_name Jimmy3D]
+titlebar_name_type: full
+titlebar_items: chamber_temp, name
+name: Jimmy3D
+
+[print]
+show_gcode: True
+show_layer_info: True
+show_progress: True
+show_preview_thumbnail: True
+thumbnail_size: 300x300
+time_estimation_method: slicer
+
+[menu __main]
+name: Jimmy3D Main Menu
+icon: custom-icon.png
+
+# Rest of menus with Jimmy3D branding
+[menu __main custom_controls]
+name: Jimmy3D Controls
+icon: control
+panel: custom_menu
+
+[menu __main custom_controls temperature]
+name: Temperature
+icon: custom-icon.png
+panel: temperature
+enable: True
+
+[menu __print]
+name: Print Control
+icon: print
+enable: True
+
+[menu __print temperature]
+name: Temperature
+icon: heat
+panel: temperature
+enable: True
+
+[menu __print fan]
+name: Fan
+icon: fan
+panel: fan
+enable: True
+
+[menu __print extrude]
+name: Extrude
+icon: filament
+panel: extrude
+enable: True
+
+[menu __print power]
+name: Power
+icon: shutdown
+panel: power
+enable: True
+
+[menu __main custom_controls move]
+name: Move
+icon: move
+panel: move
+enable: True
+
+[menu __main custom_controls extrude]
+name: Extrude
+icon: filament
+panel: extrude
+enable: True
+
+[menu __main custom_controls fan]
+name: Fans
+icon: fan
+panel: fan
+enable: True
+
+[menu __main custom_macros]
+name: Jimmy3D Macros
+icon: custom-script
+enable: True
+
+[menu __main custom_macros start_print]
+name: Start Print
+icon: custom-script
+method: printer.gcode.script
+params: {"script":"START_PRINT"}
+enable: True
+
+[menu __main custom_macros end_print]
+name: End Print
+icon: custom-script
+method: printer.gcode.script
+params: {"script":"END_PRINT"}
+enable: True
+
+[graph Jimmy3D]
+heater_bed: True
+extruder: True
+temperature_sensor raspberry_pi: False
+
+[preheat PLA]
+extruder: 200
+heater_bed: 60
+
+[preheat PETG]
+extruder: 240
+heater_bed: 80
+
+[preheat ABS]
+extruder: 245
+heater_bed: 100
+
+[style]
+background-color: #13181C
+logo-color: #FFFFFF
+graph-background-color: #22272B
+# Custom text color for Jimmy3D branding
+text-color: #FFFFFF
