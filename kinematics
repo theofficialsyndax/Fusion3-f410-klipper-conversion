@@ -1,0 +1,50 @@
+public class InverseKinematics {
+    // Define the lengths of the 3 axes (in mm or any appropriate units)
+    private double xLength = 355; // length of the X axis
+    private double yLength = 355; // length of the Y axis
+    private double zLength = 315; // height of the Z axis
+    
+    // Constructor (optional)
+    public InverseKinematics(double xLength, double yLength, double zLength) {
+        this.xLength = xLength;
+        this.yLength = yLength;
+        this.zLength = zLength;
+    }
+
+    // Function to compute the joint angles or positions for X, Y, Z
+    // assuming a simple Cartesian setup
+    public double[] calculateIK(double xTarget, double yTarget, double zTarget) {
+        double[] joints = new double[3]; // Array to store the joint positions
+        
+        // Inverse kinematics calculations for each axis
+        
+        // X-axis position (direct mapping)
+        joints[0] = xTarget;
+        
+        // Y-axis position (direct mapping)
+        joints[1] = yTarget;
+        
+        // Z-axis position (direct mapping)
+        joints[2] = zTarget;
+        
+        return joints;
+    }
+    
+    public static void main(String[] args) {
+        InverseKinematics ikSolver = new InverseKinematics(200, 200, 200);
+        
+        // Example target position in the 3D space
+        double targetX = 150;
+        double targetY = 100;
+        double targetZ = 50;
+        
+        // Solve inverse kinematics
+        double[] jointAngles = ikSolver.calculateIK(targetX, targetY, targetZ);
+        
+        // Output the joint positions
+        System.out.println("Joint Positions:");
+        System.out.println("X-axis: " + jointAngles[0]);
+        System.out.println("Y-axis: " + jointAngles[1]);
+        System.out.println("Z-axis: " + jointAngles[2]);
+    }
+}
